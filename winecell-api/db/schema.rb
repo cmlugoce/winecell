@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_192020) do
   create_table "wines", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "type"
+    t.string "wine_type"
     t.integer "price"
     t.integer "year"
     t.string "image"

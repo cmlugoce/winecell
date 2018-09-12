@@ -3,7 +3,7 @@ class CreateWines < ActiveRecord::Migration[5.2]
     create_table :wines do |t|
       t.string :name
       t.string :description
-      t.string :type
+      t.string :wine_type
       t.integer :price
       t.integer :year
       t.string :image
