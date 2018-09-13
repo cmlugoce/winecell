@@ -5,21 +5,12 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
+import wines from './reducers/wines';
 
 
-const winesReducer = (state = [], action) => {
-
-    switch(action.type) {
-        case 'GET_WINES_SUCCESS':
-        return action.wine;
-
-        default:
-        return state;
-    }
-}
 
 const reducers = combineReducers({
-    wines: winesReducer
+    wines
 });
 const middleware = [thunk];
 
