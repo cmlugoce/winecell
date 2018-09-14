@@ -6,11 +6,13 @@ import {
 
 import thunk from 'redux-thunk';
 import wines from './reducers/wines';
+import wineFormData from './reducers/wineFormData';
 
 
 
 const reducers = combineReducers({
-    wines
+    wines,
+    wineFormData
 });
 const middleware = [thunk];
 

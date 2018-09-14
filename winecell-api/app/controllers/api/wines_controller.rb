@@ -7,7 +7,7 @@ class Api::WinesController < ApplicationController
     end 
 
     def create 
-       @wine = Wine.build(wine_params)
+       @wine = Wine.new(wine_params)
        if @wine.save
         render json: @wine
        else

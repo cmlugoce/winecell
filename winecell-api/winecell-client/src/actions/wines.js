@@ -8,6 +8,13 @@ const setWines = wines => {
     }
 }
 
+//const addWine = wine => {
+ //   return {
+ //       type: 'CREATE_WINE_SUCCESS',
+  //      wine
+  //  }
+//}
+
 
 
 
@@ -22,4 +29,22 @@ export const getWines = () => {
       .catch(error => console.log(error));
   }
     
+}
+
+export const createWine = wine => {
+  
+    return dispatch => {
+        return fetch('http://localhost:3001/api/wines', {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({wine})
+        })
+         .then(response => response.json())
+         .then(wine => {debugger}//dispatch(addWine(wine))
+        )
+         
+         .catch(error => console.log(error));
+    }
 }
