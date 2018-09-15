@@ -1,0 +1,14 @@
+.nav-title{
+
+    font-weight: bold;
+    color: rebeccapurple;
+    font-size: 2.5em;
+}
+
+#nav {
+    background-color: whitesmoke;
+}
+
+header.masthead {
+    background-image: url("../bottle.jpg");
+}
