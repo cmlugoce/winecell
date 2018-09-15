@@ -9,3 +9,9 @@ export const updateWineFormData = wineFormData => {
 
     }
 }
+
+export const resetWineForm = () => {
+    return {
+        type: 'RESET_WINE_FORM'
+    }
+}
