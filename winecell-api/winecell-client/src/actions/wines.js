@@ -1,4 +1,4 @@
-
+import { resetWineForm } from './wineForm';
 ///////// Actions Creators ////////
 
 const setWines = wines => {
@@ -42,8 +42,10 @@ export const createWine = wine => {
             body: JSON.stringify({wine})
         })
          .then(response => response.json())
-         .then(wine => dispatch(addWine(wine))
-        )
+         .then(wine => {
+             dispatch(addWine(wine))
+             dispatch(resetWineForm())
+         })
          
          .catch(error => console.log(error));
     }
