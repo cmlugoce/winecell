@@ -8,12 +8,12 @@ const setWines = wines => {
     }
 }
 
-//const addWine = wine => {
- //   return {
- //       type: 'CREATE_WINE_SUCCESS',
-  //      wine
-  //  }
-//}
+const addWine = wine => {
+   return {
+       type: 'CREATE_WINE_SUCCESS',
+       wine
+   }
+}
 
 
 
@@ -42,7 +42,7 @@ export const createWine = wine => {
             body: JSON.stringify({wine})
         })
          .then(response => response.json())
-         .then(wine => {debugger}//dispatch(addWine(wine))
+         .then(wine => dispatch(addWine(wine))
         )
          
          .catch(error => console.log(error));
