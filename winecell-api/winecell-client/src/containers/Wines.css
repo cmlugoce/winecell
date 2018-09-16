@@ -23,6 +23,6 @@
       
   }
 
-  .pull-left{
-      float: left;
+  #wineName {
+      font-weight: bold;
   }

@@ -13,8 +13,8 @@ const Navbar = () => {
             <Link class="navbar-item" to="/">
               home
             </Link>
-            <Link class="navbar-item" to="/about">
-              about
+            <Link class="navbar-item" to="/wines">
+              all wines
             </Link>
             <Link class="navbar-item" to="/new">
               add wine
