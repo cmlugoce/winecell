@@ -62,6 +62,13 @@ class WinePage extends Component {
 
 }
 
+WineCard 
+<p> Description: {wine.description} </p>
+  
+   <p> Year: {wine.year} </p>
+   <p> Price:  ${wine.price} </p>
+  
+
 
 
   export default WinePage;
