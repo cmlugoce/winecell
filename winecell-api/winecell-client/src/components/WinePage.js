@@ -2,34 +2,29 @@ import React from "react";
 import { connect } from "react-redux"; 
 //import {loadWine} from '../actions/wines';
 //import PropTypes from 'prop-types';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 const WinePage = ({ wine }) => {
     return (
-      <section class="hero is-light is-fullheight is-bold">
+      <section className="hero is-light is-fullheight is-bold">
       <div class="hero-head">
           <br />
-      <div class="hero-body">
-        <div class="box">
-        <article class="media">
-        <div class="media-left">
-          <figure class="image is-100x100">
+          <br />
+          <br />
+          <br />
             <img src={wine.image} alt="" />
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong>{wine.name}</strong>
-              <br />
-             
-            </p>
-          </div>
-        </div>
-      </article>
-      </div>
-      </div>
+            <h2 className = "active-wine_name">{wine.name}</h2>
+            <h3>Wine type: {wine.wine_type}</h3>
+            <h3> Year: {wine.year} </h3>
+            <h3> Description: {wine.description} </h3>
+            <h3> Price: ${wine.price} </h3>
+
+            <br></br>
+            
+                
+                <Link to="/wines">All Wines </Link>
+          
       </div>
       </section> 
   );
