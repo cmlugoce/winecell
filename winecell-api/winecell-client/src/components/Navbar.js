@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import './components.css';
 const Navbar = () => {
     return (
-        <nav class="navbar is-fixed-top" id="nav">
-        <div class="nav-title">WINECELL</div>
+        <nav className="navbar is-fixed-top" id="nav">
+        <div className="nav-title">WINECELL</div>
 
-      <div class="container">
-        <div id="navbarMenu" class="navbar-menu">
-          <div class="navbar-end">
+      <div className="container">
+        <div id="navbarMenu" className="navbar-menu">
+          <div className="navbar-end">
             
-            <Link class="navbar-item" to="/">
+            <Link className="navbar-item" to="/">
               home
             </Link>
-            <Link class="navbar-item" to="/wines">
+            <Link className="navbar-item" to="/wines">
               all wines
             </Link>
-            <Link class="navbar-item" to="/new">
+            <Link className="navbar-item" to="/new">
               add wine
             </Link>
             
