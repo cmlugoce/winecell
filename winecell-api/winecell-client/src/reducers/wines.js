@@ -10,6 +10,9 @@ export default (state = [], action) => {
         case 'CREATE_WINE_SUCCESS':
         return state.concat(action.wine);
 
+        case 'GET_WINE_SUCCESS':
+        return action.wine;
+
         default:
         return state;
     }

@@ -15,6 +15,12 @@ const addWine = wine => {
    }
 }
 
+const setWine = wine => {
+    return {
+        type: 'GET_WINE_SUCCESS', 
+        wine
+    }
+}
 
 
 
@@ -50,3 +56,14 @@ export const createWine = wine => {
          .catch(error => console.log(error));
     }
 }
+
+export const loadWine = wine => {
+
+    return dispatch => {
+        return fetch('http://localhost:3001/api/wines')
+        .then(response => response.json())
+        .then(wine => dispatch(setWine(wine)))
+      .catch(error => console.log(error));
+  }
+      
+  }

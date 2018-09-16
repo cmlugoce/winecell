@@ -14,7 +14,7 @@ import './Wines.css';
        return (
          <div className="WinesContainer">
        <h1> Wines </h1>
-       {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} />)}     
+       {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} state= {wine=> wine.name} />)}     
        {this.props.children}
        </div>
     );  

@@ -11,10 +11,10 @@ const WineCard = ({wine}) => (
    <p> Price:  ${wine.price} </p>
   
  
-   <Link to={{pathname: `/wines/${wine.id}`}}>View Wine</Link>
+   <Link to={{pathname: `/wines/${wine.id}`, state: {wine: wine.id}}}>View Wine</Link>
    </div>
 
 
 )
-debugger
+
 export default WineCard;

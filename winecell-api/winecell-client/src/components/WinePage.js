@@ -1,51 +1,49 @@
-import React, {Component} from 'react';  
+import React from "react";
+import { connect } from "react-redux"; 
 //import {loadWine} from '../actions/wines';
 //import PropTypes from 'prop-types';
-//import {connect} from 'react-redux';
+//import {Link} from 'react-router-dom';
 
 
-class WinePage extends Component {
-    state = {
-        activeWine: []
-    }
-
-    componentDidMount= async ()=> {
-       // const name = this.props.location.state.wine;
-        const req = await fetch ('http://localhost:3001/api/wines')
-        const res = await req.json();
-        //console.log(res[0]);
-        this.setState({activeWine: res[0]});
-        console.log(this.state.activeWine);
-      
-    }
-   render(){
-       const wine = this.state.activeWine;
+const WinePage = ({ wine }) => {
     return (
-        <div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            
-          <div className="container">
-           <div className= "active-wine">
-            <img className="active-wine_img" src={wine.image} alt={wine.name}/>
-            <h2 className = "active-wine_name">{wine.name}</h2>
-            <h3>Wine type: {wine.wine_type}</h3>
-            <h3> Year: {wine.year} </h3>
-            <h3> Description: {wine.description} </h3>
-            <h3> Price: ${wine.price} </h3>
-
-          </div>
+      <section class="hero is-light is-fullheight is-bold">
+      <div class="hero-head">
+          <br />
+      <div class="hero-body">
+        <div class="box">
+        <article class="media">
+        <div class="media-left">
+          <figure class="image is-100x100">
+            <img src={wine.image} alt="" />
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{wine.name}</strong>
+              <br />
+             
+            </p>
           </div>
         </div>
+      </article>
+      </div>
+      </div>
+      </div>
+      </section> 
+  );
+};
 
-    )
-
+const mapStateToProps = (state, ownProps) => {
+  const wine = state.wines.find(
+    wine => String(wine.id) === ownProps.match.params.id
+  );
+  if (wine) {
+    return { wine: wine };
+  } else {
+    return { wine: {} };
   }
+};
 
-}
-
-
-
-  export default WinePage;
+export default connect(mapStateToProps)(WinePage);
