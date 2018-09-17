@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Card, Icon, Image } from 'semantic-ui-react'
 const WineCard = ({wine}) => (
     <div key={wine.id} className="WineCard">
    
-    <h2 id="wineName">{wine.name}</h2>
+    
     <img className="WineImage" src={wine.image} alt={wine.name} />
+    
     <br />
     <br />
+    <h1 id="wineName"><strong>{wine.name}</strong></h1>
     <h3> Wine type: {wine.wine_type} </h3>
 
     <br />

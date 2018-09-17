@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { createWine } from '../actions/wines';
 import { updateWineFormData} from '../actions/wineForm';
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 
 class WineForm extends Component {
@@ -28,22 +29,39 @@ class WineForm extends Component {
     const { name, description, wine_type, image, year, price} = this.props.wineFormData;
 
     return (
-       <div >
-           Add a wine bottle 
-           <form  onSubmit={this.handleOnSubmit}>
+       <div className='form'>
+       <div className='formss'>
+          <h1 ><strong> Add a wine bottle</strong></h1> </div>
+           <Form  onSubmit={this.handleOnSubmit}>
+           <Form.Field>
              <div><input type = 'text'onChange={this.handleOnChange}  name= 'name' value={name} placeholder = 'Name' /></div>
+             </Form.Field>
+             <Form.Field>
              <div><input type = 'text'onChange={this.handleOnChange}  name= 'description' value={description} placeholder = 'Description' /></div>
+             </Form.Field>
+             <Form.Field>
              <div><input type = 'text'onChange={this.handleOnChange}  name= 'wine_type' value={wine_type} placeholder = 'Wine type' /></div>
+             </Form.Field>
+             <Form.Field>
              <div><input type = 'text'onChange={this.handleOnChange}  name= 'image' value={image} placeholder = 'Image' /></div>
+             </Form.Field>
+             <Form.Field>
              <div>
              <label htmlFor='year'> Year: </label>
                <input type = 'number' onChange={this.handleOnChange} name= 'year' value={year} placeholder = 'Year' /></div>
+               </Form.Field>
+               <Form.Field>
              <div>
+             
+             
                <label htmlFor='price'> Price: </label>
                <input type = 'number'onChange={this.handleOnChange}  name= 'price' value={price} placeholder = 'Price' /></div>
+               </Form.Field>
                 <br></br>
-               <button type="submit" > Add Wine bottle </button>
-            </form>
+               <Button type="submit" > Add Wine bottle </Button>
+               <br />
+            </Form>
+            <br />
         </div>
 
     )

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 //import {loadWine} from '../actions/wines';
 //import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import { Divider, Image } from 'semantic-ui-react'
 
 
 const WinePage = ({ wine }) => {
@@ -13,7 +14,10 @@ const WinePage = ({ wine }) => {
           <br />
           <br />
           <br />
-            <img src={wine.image} alt="" />
+          <center>
+          <Divider hidden />
+           <Image src={wine.image} size='medium'  bordered />
+           </center>
             <h2 className = "active-wine_name">{wine.name}</h2>
             <h3>Wine type: {wine.wine_type}</h3>
             <h3> Year: {wine.year} </h3>
