@@ -8,6 +8,7 @@ import wineIndex from './components/allWines';
 import Error from './components/Error';
 import WineFormPage from './components/WineFormPage';
 import WinePage from './components/WinePage';
+import Wine101 from './components/Wine101';
 
 import Navbar from './components/Navbar';
 
@@ -31,7 +32,9 @@ class App extends Component {
           <Route path='/wines' component={wineIndex} exact />
           <Route path='/wines/:id' component={WinePage} />
           <Route path='/new' component={WineFormPage} />
+          <Route path='/winebasics' component={Wine101} />
           <Route component={Error} />
+         
          
           </Switch>
           </div>
