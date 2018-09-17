@@ -19,6 +19,9 @@ const Navbar = () => {
             <Link className="navbar-item" to="/new">
               add wine
             </Link>
+            <Link className="navbar-item" to="/winebasics">
+              wine 101
+            </Link>
             
           </div>
         </div>
