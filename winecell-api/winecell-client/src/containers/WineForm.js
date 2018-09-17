@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { createWine } from '../actions/wines';
 import { updateWineFormData} from '../actions/wineForm';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 class WineForm extends Component {
