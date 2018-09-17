@@ -27,3 +27,12 @@ body {
     font-family: 'Ubuntu Mono', monospace;
     background-image: url("../bottle.jpg");
 }
+
+#wine101 {
+    
+    background-color: whitesmoke;
+}
+
+.error-page {
+    background-color: whitesmoke;
+}
