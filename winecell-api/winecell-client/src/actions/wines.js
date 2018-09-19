@@ -15,12 +15,13 @@ const addWine = wine => {
    }
 }
 
-const setWine = wine => {
-    return {
-        type: 'GET_WINE_SUCCESS', 
-        wine
+const updateLikes = wine => {
+    return{
+        type: 'UPDATE_LIKE',
+        wine: wine
     }
 }
+
 
 
 
@@ -38,7 +39,7 @@ export const getWines = () => {
 }
 
 export const createWine = wine => {
-  
+    console.log('C')
     return dispatch => {
         return fetch('http://localhost:3001/api/wines', {
             method: "POST",
@@ -49,21 +50,28 @@ export const createWine = wine => {
         })
          .then(response => response.json())
          .then(wine => {
+             console.log('D')
              dispatch(addWine(wine))
              dispatch(resetWineForm())
          })
          
          .catch(error => console.log(error));
     }
+    
 }
 
-export const loadWine = wine => {
-
+export const addLike = (wine) => {
+   
     return dispatch => {
-        return fetch('http://localhost:3001/api/wines')
+      return fetch(`http://localhost:3001/api/wines/${wine.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({wine})
+      })
         .then(response => response.json())
-        .then(wine => dispatch(setWine(wine)))
-      .catch(error => console.log(error));
-  }
-      
+        .then(wine=> dispatch(updateLikes(wine)))
+        .catch(error => console.log(error))
+    }
   }
