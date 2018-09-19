@@ -11,7 +11,7 @@ Wine.create(name: "Cotes de Provence", description: "Peach nose and flavor. Nice
 Wine.create(name: "The Snitch", description: "Creamy, oaky and still very fresh ", wine_type: "Chardonnay", year: 2016, price: 25, image:"https://cdn.shopify.com/s/files/1/1580/4729/products/Screen_Shot_2018-06-15_at_11.42.20_PM.png?v=1529131351")
 Wine.create(name: "Capellania", description: "Nice clean yellow ", wine_type: "Rioja", year: 2012, price: 24, image: "https://cdn.shopify.com/s/files/1/0124/8792/products/Marques_de_Murrieta_Capellania_1000x.jpg?v=1535260699")
 Wine.create(name: "Decima Aurea", description: "Very nice try and smooth not to Heavy and just perfect. ", wine_type: "Merlot", year: 2007, price: 40, image:"http://www.tenutasantamaria.wine/wp-content/uploads/2014/04/vini-03-decima.jpg")
-Wine.create(name: "The Boxer Shiraz", description: " Delicious mildly Oakey Shiraz ", wine_type: "Syrah", year: 2015, price: 30, image:"images.vivino.com/thumbs/_jEM-6XiQdOfFVLGXQLPDA_pl_375x500.png")
+Wine.create(name: "The Boxer Shiraz", description: " Delicious mildly Oakey Shiraz ", wine_type: "Syrah", year: 2015, price: 30, image:"https://www.springhouseatcrossroads.com/images/molly-dooker-boxer-300px.jpg?crc=498693499")
 Wine.create(name: "Terroir Los Miradores", description: " Dark deep purple colour ", wine_type: "Malbec", year: 2015, price: 31, image:"https://pbs.twimg.com/media/DAdbT6KWsAQbJBi.jpg")
 Wine.create(name: "Prosecco Superiore", description: " Pale yellow colour with decent bubbles. On the nose citrus, yeast and minerals.
 On the palate light bodied with balanced acidity and a long melon finish. ", wine_type: "Prosecco", year: 2015, price: 25, image:"https://altaneve.com/wp-content/uploads/2016/11/altaneve-z.jpg")

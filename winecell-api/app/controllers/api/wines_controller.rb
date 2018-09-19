@@ -23,6 +23,8 @@ class Api::WinesController < ApplicationController
 
     def update
       if @wine.update(wine_params)
+        @wine.like
+        @wine.save
         render json: @wine 
     else
         render json: { message: @wine.errors}, status: 400
@@ -55,7 +57,7 @@ class Api::WinesController < ApplicationController
 
   def wine_params
 
-  params.require(:wine).permit(:name, :description, :wine_type, :price, :year, :image)
+  params.require(:wine).permit(:name, :description, :wine_type, :price, :year, :image, :likes)
 
   end
 
