@@ -20,8 +20,9 @@ class WineForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     
-    
+    console.log('A')
     this.props.createWine(this.props.wineFormData)
+    console.log('B')
     
   }
 

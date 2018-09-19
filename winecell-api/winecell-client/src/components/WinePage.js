@@ -3,31 +3,38 @@ import { connect } from "react-redux";
 //import {loadWine} from '../actions/wines';
 //import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import { Divider, Image } from 'semantic-ui-react'
+import { Divider, Image, Button } from 'semantic-ui-react'
 
 
 const WinePage = ({ wine }) => {
     return (
       <section className="hero is-light is-fullheight is-bold">
-      <div class="hero-head">
+      <div className="hero-head">
           <br />
           <br />
           <br />
           <br />
+          
           <center>
-          <Divider hidden />
+          <Divider hidden className='wine-show-image' />
            <Image src={wine.image} size='medium'  bordered />
            </center>
-            <h2 className = "active-wine_name">{wine.name}</h2>
-            <h3>Wine type: {wine.wine_type}</h3>
-            <h3> Year: {wine.year} </h3>
-            <h3> Description: {wine.description} </h3>
-            <h3> Price: ${wine.price} </h3>
-
+           
+           <br />
+           <div id='wine-info'>
+            <h2 className = "active-wine_name"><strong>{wine.name}</strong></h2>
+            <h3><strong>Wine type:</strong> {wine.wine_type}</h3>
+            <h3><strong> Year:</strong> {wine.year} </h3>
+            <h3><strong> Description: </strong> {wine.description} </h3>
+            <h3><strong> Price:</strong> ${wine.price} </h3>
+            </div>
             <br></br>
             
                 
-                <Link to="/wines">All Wines </Link>
+                <Link to="/wines">
+                <Button basic color='violet' content='All Wines' /> 
+               
+                </Link>
           
       </div>
       </section> 

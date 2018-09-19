@@ -19,9 +19,7 @@
     color: yellow;
 }
 
-header.masthead {
-    background-image: url("../bottle.jpg");
-}
+
 
 body {
     font-family: 'Ubuntu Mono', monospace;
@@ -35,4 +33,14 @@ body {
 
 .error-page {
     background-color: whitesmoke;
+}
+
+.active-wine_name{
+
+    font-size: 2.5em; 
+    font-weight: bold;
+}
+
+.wine-info h3{
+  font-size: 2em;
 }

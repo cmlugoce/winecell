@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import WineCard from "../components/WineCard";
-//import WineForm from "../containers/WineForm";
 import { getWines } from '../actions/wines';
 import './Wines.css';
+
+
+
 
   class Wines extends Component {
 
@@ -14,7 +16,7 @@ import './Wines.css';
        return (
          <div className="WinesContainer">
        
-       {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} state= {wine=> wine.name} />)}     
+       {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine}  />)}     
        {this.props.children}
        </div>
     );  
