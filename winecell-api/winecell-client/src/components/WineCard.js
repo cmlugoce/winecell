@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {addLike} from '../actions/wines';
 import { Link } from "react-router-dom";
 import {  Button, Icon } from 'semantic-ui-react'
-import { getWines} from '../actions/wines';
+
 
 class WineCard extends Component {
     constructor(props) {
@@ -13,9 +13,9 @@ class WineCard extends Component {
           }
     }
 
-    componentWillMount(){
+   // componentWillMount(){
        // this.props.getWines()
-      }
+     // }
 
       componentDidMount() {
         this.setState({
@@ -24,22 +24,7 @@ class WineCard extends Component {
           
       }
 
-  //  likeWine = (id) => {
-    //    this.setState(prevState => {
-      ///      return {
-         //     count: ++prevState.count
-           // }
-         // })
-       // }
-      //  id = this.props.wine.id
-      //    return fetch(`/wines/${id}`, {
-      //      method: "PATCH",
-       //     headers: {
-           //   "Content-Type": "application/json"
-           // },
-           // body: id
-     //     })
-     //   };
+  
      
 
     handleClick = (event) => {
@@ -47,21 +32,7 @@ class WineCard extends Component {
         let wine = this.props.wines.find(function(wine){return (wine.id).toString() === event.target.value})
        this.props.addLike(wine)
       }
-       //id=this.props.wine.id
-     //   return fetch(`http://localhost:3001/api/wines`, {
-      //      method: "PUT",
-      //      headers: {
-      //        "Content-Type": "application/json"
-      //      },
-      //      body: this.props.wine.id
-      //    })
-        
       
-       //console.log('liked');
-     //}
-     // componentDidUpdate() {
-    //localStorage.setItem('_increment', JSON.stringify(this.state))  
-  //}
 
   
   
