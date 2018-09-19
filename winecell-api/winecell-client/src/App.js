@@ -30,8 +30,8 @@ class App extends Component {
         <Switch>
           <Route path='/' component={Home} exact/>
           <Route path='/wines' component={wineIndex} exact />
-          <Route path='/wines/:id' component={WinePage} />
-          <Route path='/new' component={WineFormPage} />
+          <Route path='/wines/:id' component={WinePage} exact />
+          <Route path='/wine/new' component={WineFormPage} exact />
           <Route path='/winebasics' component={Wine101} />
           <Route component={Error} />
          
