@@ -9,9 +9,10 @@ export default (state = [], action) => {
 
         case 'CREATE_WINE_SUCCESS':
         return state.concat(action.wine);
-        
+
         case 'DELETE_WINE_SUCCESS':
        return state.filter(wine => wine.id !== action.wineId)
+       
 
         case 'UPDATE_LIKE':
         let idx = state.findIndex((wine) => {return action.wine.id === wine.id})

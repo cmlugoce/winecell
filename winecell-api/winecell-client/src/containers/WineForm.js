@@ -3,9 +3,14 @@ import {connect} from 'react-redux';
 import { createWine } from '../actions/wines';
 import { updateWineFormData} from '../actions/wineForm';
 import { Button, Form } from 'semantic-ui-react'
+import {Redirect} from 'react-router-dom';
+
 
 
 class WineForm extends Component {
+  state = {
+    redirectToPage: false
+  }
 
   handleOnChange = event => {
     const {name, value} = event.target;
@@ -24,13 +29,18 @@ class WineForm extends Component {
     this.props.createWine(this.props.wineFormData)
     console.log('B')
     
-    
+    this.setState({ redirectToPage: true })
   }
 
   render() {
     const { name, description, wine_type, image, year, price} = this.props.wineFormData;
-
+    if (this.state.redirectToPage) {
+      return (
+        <Redirect to="/wines"/>
+        )
+      }
     return (
+      
        <div className='form'>
        <div className='formss'>
           <h1 ><strong> Add a wine bottle</strong></h1> </div>

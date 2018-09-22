@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import Wines from './containers/Wines';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import wineIndex from './components/allWines';
