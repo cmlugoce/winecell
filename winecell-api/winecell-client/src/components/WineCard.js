@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addLike} from '../actions/wines';
+import {deleteWine} from '../actions/wines';
 import { Link } from "react-router-dom";
 import {  Button, Icon } from 'semantic-ui-react'
 
@@ -16,6 +17,8 @@ class WineCard extends Component {
    // componentWillMount(){
        // this.props.getWines()
      // }
+     
+     
 
       componentDidMount() {
         this.setState({
@@ -32,6 +35,9 @@ class WineCard extends Component {
         let wine = this.props.wines.find(function(wine){return (wine.id).toString() === event.target.value})
        this.props.addLike(wine)
       }
+
+     
+      
       
 
   
@@ -45,7 +51,6 @@ class WineCard extends Component {
 
     <div key={this.props.wine.id} className="WineCard">
    
-    
     <img className="WineImage" src={this.props.wine.image} alt={this.props.wine.name} />
     
     <br />
@@ -61,7 +66,7 @@ class WineCard extends Component {
             
        </Button>
     
-   
+
    
    </div>
 
@@ -81,5 +86,5 @@ class WineCard extends Component {
         }
     }
 
-export default connect(mapStateToProps, {addLike}) (WineCard);
+export default connect(mapStateToProps, {addLike, deleteWine}) (WineCard);
 

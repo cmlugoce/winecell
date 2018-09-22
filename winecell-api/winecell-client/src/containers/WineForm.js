@@ -24,6 +24,7 @@ class WineForm extends Component {
     this.props.createWine(this.props.wineFormData)
     console.log('B')
     
+    
   }
 
   render() {

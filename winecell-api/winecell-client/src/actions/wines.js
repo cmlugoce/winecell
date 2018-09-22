@@ -22,6 +22,12 @@ const updateLikes = wine => {
     }
 }
 
+const removeWine = wineId => {
+    return{
+        type: 'DELETE_WINE_SUCCESS',
+        wineId: wineId
+    }
+}
 
 
 
@@ -53,9 +59,12 @@ export const createWine = wine => {
              console.log('D')
              dispatch(addWine(wine))
              dispatch(resetWineForm())
+             console.log('E')
+             
          })
          
          .catch(error => console.log(error));
+         
     }
     
 }
@@ -72,6 +81,14 @@ export const addLike = (wine) => {
       })
         .then(response => response.json())
         .then(wine=> dispatch(updateLikes(wine)))
+        .catch(error => console.log(error))
+    }
+  }
+
+  export const deleteWine = (id) => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/wines/${id}`, {method: 'delete'})
+        .then(dispatch(removeWine({id})))
         .catch(error => console.log(error))
     }
   }

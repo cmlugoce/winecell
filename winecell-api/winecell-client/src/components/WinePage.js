@@ -1,12 +1,18 @@
 import React from "react";
 import { connect } from "react-redux"; 
-//import {loadWine} from '../actions/wines';
+import {deleteWine} from '../actions/wines';
 //import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import { Divider, Image, Button } from 'semantic-ui-react'
 
 
-const WinePage = ({ wine }) => {
+class WinePage extends React.Component {
+  deleteClick = (event) => {
+    event.preventDefault()
+    this.props.deleteWine(this.props.wine.id)
+   .then(this.props.history.push('/wines'))
+} 
+   render(){
     return (
       <section className="hero is-light is-fullheight is-bold">
       <div className="hero-head">
@@ -17,16 +23,16 @@ const WinePage = ({ wine }) => {
           
           <center>
           <Divider hidden className='wine-show-image' />
-           <Image src={wine.image} size='medium'  bordered />
+           <Image src={this.props.wine.image} size='medium'  bordered />
            </center>
            
            <br />
            <div id='wine-info'>
-            <h2 className = "active-wine_name"><strong>{wine.name}</strong></h2>
-            <h3><strong>Wine type:</strong> {wine.wine_type}</h3>
-            <h3><strong> Year:</strong> {wine.year} </h3>
-            <h3><strong> Description: </strong> {wine.description} </h3>
-            <h3><strong> Price:</strong> ${wine.price} </h3>
+            <h2 className = "active-wine_name"><strong>{this.props.wine.name}</strong></h2>
+            <h3><strong>Wine type:</strong> {this.props.wine.wine_type}</h3>
+            <h3><strong> Year:</strong> {this.props.wine.year} </h3>
+            <h3><strong> Description: </strong> {this.props.wine.description} </h3>
+            <h3><strong> Price:</strong> ${this.props.wine.price} </h3>
             </div>
             <br></br>
             
@@ -35,11 +41,13 @@ const WinePage = ({ wine }) => {
                 <Button basic color='violet' content='All Wines' /> 
                
                 </Link>
-          
+                <Button basic color='red' content='DELETE' onClick={this.deleteClick} value='delete'/>
+
       </div>
       </section> 
   );
 };
+}
 
 const mapStateToProps = (state, ownProps) => {
   const wine = state.wines.find(
@@ -52,4 +60,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-export default connect(mapStateToProps)(WinePage);
+export default connect(mapStateToProps, {deleteWine})(WinePage);
