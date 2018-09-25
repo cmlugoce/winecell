@@ -11,6 +11,7 @@ class WineCard extends Component {
         super(props)
         this.state = {
             currentlyDisplayed: this.props.wine
+            
           }
     }
 
@@ -32,8 +33,8 @@ class WineCard extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
-        let wine = this.props.wines.find(function(wine){return (wine.id).toString() === event.target.value})
-       this.props.addLike(wine)
+        //let wine = this.props.wines.find(function(wine){return (wine.id).toString() === event.target.value})
+       this.props.addLike(this.props.wine)
       }
 
      
