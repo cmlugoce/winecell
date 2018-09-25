@@ -21,7 +21,6 @@ export default (state = [], action) => {
        
 
       return newState
-       // return {...state.wine, count: state.count + 1}(action.wine);
 
        
 
