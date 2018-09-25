@@ -59,7 +59,7 @@ export const createWine = wine => {
              console.log('D')
              dispatch(addWine(wine))
              dispatch(resetWineForm())
-             console.log('E')
+             //console.log('E')
              
          })
          
