@@ -11,31 +11,34 @@ import './Wines.css';
 
   class Wines extends Component {
 
+    constructor() {
+      super()
+   this.state ={
+     wines: []
+   }
+  }
     
-
-    state = {
-      
-     
-      wines: [],
-    }
 
     componentDidMount() {
      this.props.getWines()
   }
   sortByMaxLikes = () => {
     //alert('click')
-    const { wines} = this.props;
-    
-    const sortedWines = wines.sort(function(a, b) {
+    const  wines =this.props.wines;
+   // const wines = [...this.state.wines]
+   // console.log(wines)
+    const sortedWines = Object.assign({}, this.state.wines, wines.sort(function(a, b) {
         return b.likes - a.likes;
         
         
       })
+    )
    
      this.setState({
-      wines: sortedWines.map(wine => <WineCard key={wine.id} wine={wine}  />)
+      wines: sortedWines
   })
-  }
+}
+  
   
   
       render() {
