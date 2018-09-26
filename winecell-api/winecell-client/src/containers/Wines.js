@@ -11,11 +11,9 @@ import './Wines.css';
 
   class Wines extends Component {
 
-    constructor() {
-      super()
-   this.state ={
-     wines: []
-   }
+    constructor(props) {
+      super(props)
+   
   }
     
 
@@ -24,10 +22,11 @@ import './Wines.css';
   }
   sortByMaxLikes = () => {
     //alert('click')
-    const  wines =this.props.wines;
-   // const wines = [...this.state.wines]
+    //const  wines =this.props.wines;
+   
    // console.log(wines)
-    const sortedWines = Object.assign({}, this.state.wines, wines.sort(function(a, b) {
+    const sortedWines = Object.assign({}, this.props.wines, 
+    this.props.wines.sort(function(a, b) {
         return b.likes - a.likes;
         
         
