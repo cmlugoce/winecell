@@ -20,53 +20,39 @@ const winer=getWines()
     this.state = {
       search: '',
       data: {},              
-      sortBy: 'name',
-      sortedBy: 'likes', 
+      //sortBy: 'name',
+      sortedBy: 'key', 
       
          
     }
   }
     
-
+   
     componentDidMount() {
       this.props.getWines()
-      .then(wines => this.setState({ data: this.props.wines }));
+      .then(wines => this.setState({ data: wines }));
     
     }
     
   
   
 
-sortBy=(likes) => {
+sortBy=(key) => {
  
-  let wines = this.state.data;
-    wines.sort(this.compareBy(likes));
+  let wines = this.state.data.wines;
+    wines.sort(this.compareBy(key));
     this.setState({sortedBy: wines});
   }
  
     
-    compareBy(likes) {
+    compareBy(key) {
       return function (a, b) {
-        if (a[likes] > b[likes]) return -1;
-        if (a[likes] < b[likes]) return 1;
+        if (a[key] > b[key]) return -1;
+        if (a[key] < b[key]) return 1;
         return 0;
       };
     }
-    sortByName=(name) => {
- 
-      let wines = this.state.data;
-        wines.sort(this.compareByName(name));
-        this.setState({sortBy: wines});
-      }
-     
-        
-        compareByName(name) {
-          return function (a, b) {
-            if (a[name] < b[name]) return -1;
-            if (a[name] > b[name]) return 1;
-            return 0;
-          };
-        }
+   
   
 
 handleChange= (event) =>{
@@ -78,6 +64,7 @@ handleChange= (event) =>{
   
       render() {
 
+                
         
         
         const {search} = this.state;
@@ -99,8 +86,8 @@ handleChange= (event) =>{
          <br />
          <div>
          <Button inverted color='yellow' onClick={() => this.sortBy('likes')}  content='Sort by Likes'/>  
-         <Button inverted color='yellow' onClick={() => this.sortByName('name')}  content='Sort by Name'/>  
-
+         <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
+            
        <br />
        {filteredWines.map(wine => <WineCard key={wine.id} wine={wine}  />)}  
        
