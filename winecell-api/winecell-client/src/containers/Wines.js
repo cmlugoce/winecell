@@ -15,8 +15,8 @@ const winer=getWines()
 
   class Wines extends Component {
     
-   constructor(props, context){
-     super(props, context)
+   constructor(props){
+     super(props)
     this.state = {
       search: '',
       data: {},              
