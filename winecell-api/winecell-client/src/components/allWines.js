@@ -3,18 +3,19 @@ import Wines from "../containers/Wines";
 import '../containers/Wines.css';
 
 
-const wineIndex = () => {
+class wineIndex extends React.Component {
 
-   
+   render(){
     return (
         <div>
-            <br></br>
-            <br></br>
+            <br />
+            <br />
          <Wines />
 
         </div>
 
     )
+  }
 
 }
 

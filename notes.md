@@ -72,3 +72,26 @@ WineCard
 
 
   export default WinePage;
+
+  renderWinesList = () => {   
+  if (this.state.sortedBy.length === 0){
+      return (
+          <div>
+              {this.props.wines.map(wine => (wine => <WineCard key={wine.id} wine={wine}  />)
+                  
+              )}
+          </div>
+      )
+  } else {
+      return (
+          <div>
+              {this.props.wines.map(wine => (wine => <WineCard key={wine.id} wine={wine}  />)
+                  
+                )}
+                  
+              })}
+          </div>
+      )
+  }        
+}
+    

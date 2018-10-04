@@ -8,96 +8,135 @@ import './Wines.css';
 
 
 
-  class Wines extends Component {
+class Wines extends Component {
     
-   constructor(props){
-     super(props)
-    this.state = {
-      //search: '',
-     // data: {},              
-      sortedBy: false,
+  constructor(props){
+    super(props)
+   this.state = {
+     search: '',
+    
+     sortedBy: 'key',
+     sorted: false,
+     
         
-    }
-  }
+   }
+ }
+   
+  
+   componentDidMount() {
+     this.props.getWines()
     
    
-    componentDidMount() {
-      this.props.getWines()
-      //.then(wines => this.setState({ data: wines }));
-    
-    }
-    
-    sortBy=(key) => {
- 
-     // let wines = this.state.data.wines;
-     // wines.sort(this.compareBy(key));
-      this.setState({sortedBy: true,});
-    }
+   }
+   
+   sortBy=(key) => {
 
+     let wines = [...this.props.wines];
+     wines.sort(this.compareBy(key));
+     this.setState({sortedBy: wines, sorted: true});
+   }
+ 
+   compareBy=(key)=> {
+     return function (a, b) {
+       if (a[key] > b[key]) return -1;
+       if (a[key] < b[key]) return 1;
+       return 0;
+     };
+   }
   
-      render() {             
-              const sorted= [...this.props.wines]
-              const sortWines= sorted.sort(function(a, b) {
-                                               
-                    if (a['likes'] > b['likes']) return -1;
-                    if (a['likes'] < b['likes']) return 1;
-                    return 0;
-                  
-              }) 
-             // debugger
-              const newWines =sortWines.map(wine => <WineCard key={wine.id} wine={wine}  />)
-              
-      if (!this.state.sortedBy===false){
+ renderWine=()=>{
+   const wines= this.state.sortedBy;
+   //debugger
+  if (this.state.sorted===true){
+
+
+    return (
+      <div className="WinesContainer">
+       <br />                       
+              <br />
+              <br />
+               <div>
+                  <Button inverted color='yellow' onClick={() => this.sortBy('likes')}  content='Sort by Likes'/>  
+                  <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
       
-       
-        return (
-          <div className="WinesContainer">
-           <br />                       
-                  <br />
-                  <br />
-                   <div>
-                      <Button inverted color='yellow' onClick={() => this.sortBy('likes')}  content='Sort by Likes'/>  
-                      <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
-          
-                    <div>
-                    {newWines}   
-                    </div> 
-                  <br />       
-               </div>   
-             
-          </div>
-     );          
+                <div>
+                {this.state.sortedBy.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
+  
+                </div> 
+              <br />       
+           </div>   
+         
+      </div>
+    );          
     
-  }else{
+    }else{
     return (
     
-<div className="WinesContainer">
-          <br />                       
-                 <br />
-                 <br />
-                  <div>
-                     <Button inverted color='yellow' onClick={() => this.sortBy('likes')}  content='Sort by Likes'/>  
-                     <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
-         
-                   <div>
-                      {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
-                   </div> 
-                 <br />       
-              </div>   
-            
-         </div>
-          ); 
-  }
+    <div className="WinesContainer">
+      <br />                       
+             <br />
+             <br />
+              <div>
+                 <Button inverted color='yellow' onClick={() => this.sortBy('likes')}  content='Sort by Likes'/>  
+                 <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
+     
+               <div>
+                  {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
+               </div> 
+             <br />       
+          </div>   
+        
+     </div>
+      ); 
+    }
+    
+    
+
  }
+
+handleChange= (event) =>{
+ this.setState({ search: event.target.value });
+
+}
+
+
+
+
+
+
+ 
+     render() {             
+                  
+      
+
+return (
+  <div className="WinesContainer">
+   <br />                       
+          <br />
+          <br />
+           <div>
+              
+            <div>
+            {this.renderWine()}   
+            </div> 
+          <br />       
+       </div>   
+     
+  </div>
+);          
+
+
+
+}
 }
 
 
 const mapStateToProps = (state) => {
 
-  return ({
+return ({
 
-    wines: state.wines
-  })
+wines: state.wines
+})
 }
 
 export default connect (mapStateToProps, {getWines}) (Wines);
