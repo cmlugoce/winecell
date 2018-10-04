@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import WineCard from "../components/WineCard";
 import { getWines } from '../actions/wines';
 import {Button} from 'semantic-ui-react';
-//import {Input} from 'mdbreact';
+import {Input} from 'mdbreact';
 import './Wines.css';
 
 
@@ -43,10 +43,18 @@ class Wines extends Component {
        return 0;
      };
    }
-  
+   handleChange= (event) =>{
+    this.setState({ search: event.target.value });
+   }
+
  renderWine=()=>{
-   const wines= this.state.sortedBy;
-   //debugger
+   
+   const {search} = this.state;
+   const filteredWines = this.props.wines.filter( wine =>{
+   return wine.name.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+     })
+    
+   
   if (this.state.sorted===true){
 
 
@@ -60,7 +68,10 @@ class Wines extends Component {
                   <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
       
                 <div>
-                {this.state.sortedBy.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
+                {this.state.sortedBy.filter( wine =>{
+                return wine.name.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+                 })
+                .map(wine => <WineCard key={wine.id} wine={wine}  />)}      
   
                 </div> 
               <br />       
@@ -81,7 +92,7 @@ class Wines extends Component {
                  <Button inverted color='yellow' onClick={() => this.sortBy('name')}  content='Sort by Name'/>  
      
                <div>
-                  {this.props.wines.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
+                  {filteredWines.map(wine => <WineCard key={wine.id} wine={wine}  />)}      
                </div> 
              <br />       
           </div>   
@@ -96,15 +107,14 @@ class Wines extends Component {
 
  
      render() {             
-  
-
+     
 return (
   <div className="WinesContainer">
    <br />                       
           <br />
           <br />
            <div>
-              
+           <Input label="Filter by name" icon="search" onChange={this.handleChange}/>
             <div>
             {this.renderWine()}   
             </div> 
