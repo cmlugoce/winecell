@@ -94,20 +94,9 @@ class Wines extends Component {
 
  }
 
-handleChange= (event) =>{
- this.setState({ search: event.target.value });
-
-}
-
-
-
-
-
-
  
      render() {             
-                  
-      
+  
 
 return (
   <div className="WinesContainer">
