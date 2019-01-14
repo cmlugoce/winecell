@@ -11,7 +11,10 @@
 
 
 
+handleChange= (event) =>{
+ this.setState({ search: event.target.value });
 
+}
 
         sortByName=(key) => {
  
@@ -35,7 +38,7 @@
 
 }
 
-//const {search} = this.state;
+//        const {search} = this.state;
       //  const filteredWines = this.props.wines.filter( wine =>{
     //        return wine.name.toLowerCase().indexOf( search.toLowerCase() ) !== -1
       //  })
@@ -44,3 +47,54 @@
     
 
      //</div>  
+
+
+renderWine=()=>{
+   
+  // const filteredWines = wines.filter( wine =>{
+  // return wine.name.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+  //   })
+    
+   
+ // if (!this.state.sorted===true){
+
+
+  //  return (
+  //    <div className="WinesContainer">
+  //     <br />                       
+  //            <br />
+  //            <br />
+  //             <div>
+  //                
+  //    
+  //              <div>
+  //              {filteredWines.map(wine => <WineCard key={wine.id} wine={wine}  />)} 
+  //
+  //              </div> 
+  //            <br />       
+  //         </div>   
+  //       
+  //    </div>
+  //  );          
+  //  
+  //  }else{
+    return (
+    
+    <div className="WinesContainer">
+      <br />                       
+             <br />
+             <br />
+              <div>
+                
+     
+              
+             <br />       
+          </div>   
+        
+     </div>
+      ); 
+    }
+    
+    
+
+// }
